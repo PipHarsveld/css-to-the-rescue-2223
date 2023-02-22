@@ -35,3 +35,9 @@ Ik wil zelf altijd een heel goed beeld heben van wat ik ga maken en precies wete
 
 ## Week 4 -->
 
+
+## Themasessies
+### Typografie | 22-02-2023
+Ik was aan de late kant met inschrijven voor de themasessies van vandaag, en dus waren de opties die nog beschikbaar waren niet meteen heel relevant voor mijn idee met de vuurwerkshow. Ik heb mij toen ingeschreven voor de themasessie typografie, omdat ik ook een idee had om vuurwerk in de vorm van een letter of tekst te maken. Ik ben toen met Vasillis over dit idee gaan sparren en kwamen toen tot de conclusie dat dit niet mogelijk is met typografie properties, maar dat ik dit zou kunnen aanpakken door een letter te scalen, meerdere emoji's uit elkaar te laten spatten (emoji's zijn ook typografie!), een letter een gradient te geven die een andere richting op schuift dan de letter of iets te animeren over een path (in de vorm van een letter). Kortom, genoeg opties om dit aan te pakken. Vooral iets animeren over een path sprak mij erg aan, dus daar ga ik tijdens de themasessie van morgen meer over leren.
+
+### Paden animeren | 23-02-2023
