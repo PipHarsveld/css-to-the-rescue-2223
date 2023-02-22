@@ -6,8 +6,9 @@ Ik heb ervoor gekozen om mij de aankomende weken bezig te houden met de interact
 
 ### CSS technieken
 Voor mijn vuurwerkshow wil ik meerdere CSS technieken uitproberen. Ik heb er al een aantal bedacht die ik sowieso wil gebruiken en waar ik mee wil beginnen, maar ik weet zeker dat die lijst blijft groeien wanneer ik eenmaal ga beginnen. Dit zijn een paar technieken waar ik mee wil beginnen:
+* Animations - Ik wil beginnen met het opfrissen van mijn animation kennis. Dit is alweer een tijdje geleden maar wel een belangrijke basis voor vuurwerk.
 * Halftone Patterns - Ik een afbeelding tonen in de stipjes van een halftone pattern, wat op die manier gezien kan worden als vuurwerk.
-* Path animations - Ik wil vormen van vuurwerk een bepaald path laten volgen
+* Path animations (Offset-path) - Ik wil vormen van vuurwerk een bepaald path laten volgen
 
 ### Grootste uitdagingen
 Ik wil zelf altijd een heel goed beeld heben van wat ik ga maken en precies weten hoe het eruit moet komen te zien, voor ik ergens aan begin. Juist bij deze opdracht vormt het eindresultaat door het proberen, experimenteren en fouten maken waardoor ik niet kan beginnen met een compleet vooruitgedacht plan. Dat is voor mij wel een uitdaging, maar dat is dan ook de reden dat ik voor deze opdracht heb gekozen.
