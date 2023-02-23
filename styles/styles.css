@@ -37,12 +37,89 @@ li {
     list-style-type: none;
 }
 
+/*********************/
+/* Custom properties */
+/*********************/
+:root{
+    --color-sky: #b4ddf0;
+    --color-ground: #b9de75;
+    --color-mountain: #7ac1e4;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root{
+        --color-sky: #041A40;
+        --color-ground: #4c5e2b;
+        --color-mountain: #285165;
+        --color-firework1: hotpink;
+    }
+
+
+
+    section:first-of-type>div:first-of-type {
+        animation: firework 3s infinite;
+    }
+
+    body>p:first-of-type{
+        display: none;
+    }
+  }
+
 
 /********************/
 /* Algemene styling */
 /********************/
 body {
-    background: #b4ddf0;
+    background: var(--color-sky);
+    color-scheme: dark light;
+}
+
+p{
+    font-family: 'Poppins', sans-serif;
+}
+
+
+body>p:first-of-type{
+    margin: 3rem;
+}
+
+
+/************************/
+/* Grond met ontstekers */
+/************************/
+section:nth-of-type(2) {
+    background-color: var(--color-ground);
+    height: 20%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+/**********/
+/* Bergen */
+/**********/
+div:not(:first-of-type) {
+    position: fixed;
+    bottom: 20%;
+    border-left: 9rem solid transparent;
+    border-right: 9rem solid transparent;
+    border-bottom: 13rem solid var(--color-mountain);
+    z-index: 1;
+}
+
+div:nth-of-type(2) {
+    left: -10rem;
+    bottom: 20%;
+    opacity: .3;
+    z-index: -1;
+}
+
+div:nth-of-type(3) {
+    left: 13rem;
+    bottom: 20%;
+    opacity: .3;
+    z-index: -1;
 }
 
 /******************************/
@@ -89,77 +166,46 @@ section:first-of-type>p {
 /**********************/
 section:first-of-type>div:first-of-type {
     position: absolute;
-    top: 30%;
+    bottom: 10%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 0.5rem;
     aspect-ratio: 1;
-    background: radial-gradient(circle, black 0.2vmin, #0000 0) 50% 00%,
-        radial-gradient(circle, black 0.3vmin, #0000 0) 00% 50%,
-        radial-gradient(circle, black 0.5vmin, #0000 0) 50% 99%,
-        radial-gradient(circle, black 0.2vmin, #0000 0) 99% 50%,
-        radial-gradient(circle, black 0.3vmin, #0000 0) 80% 90%,
-        radial-gradient(circle, black 0.5vmin, #0000 0) 95% 90%,
-        radial-gradient(circle, black 0.5vmin, #0000 0) 10% 60%,
-        radial-gradient(circle, black 0.2vmin, #0000 0) 31% 80%,
-        radial-gradient(circle, black 0.3vmin, #0000 0) 80% 10%,
-        radial-gradient(circle, black 0.2vmin, #0000 0) 90% 23%,
-        radial-gradient(circle, black 0.3vmin, #0000 0) 45% 20%,
-        radial-gradient(circle, black 0.5vmin, #0000 0) 13% 24%;
+    background: radial-gradient(circle, var(--color-firework1) 0.2vh, #0000 0) 50% 00%,
+        radial-gradient(circle, var(--color-firework1) 0.3vh, #0000 0) 00% 50%,
+        radial-gradient(circle, var(--color-firework1) 0.5vh, #0000 0) 50% 99%,
+        radial-gradient(circle, var(--color-firework1) 0.2vh, #0000 0) 99% 50%,
+        radial-gradient(circle, var(--color-firework1) 0.3vh, #0000 0) 80% 90%,
+        radial-gradient(circle, var(--color-firework1) 0.5vh, #0000 0) 95% 90%,
+        radial-gradient(circle, var(--color-firework1) 0.5vh, #0000 0) 10% 60%,
+        radial-gradient(circle, var(--color-firework1) 0.2vh, #0000 0) 31% 80%,
+        radial-gradient(circle, var(--color-firework1) 0.3vh, #0000 0) 80% 10%,
+        radial-gradient(circle, var(--color-firework1) 0.2vh, #0000 0) 90% 23%,
+        radial-gradient(circle, var(--color-firework1) 0.3vh, #0000 0) 45% 20%,
+        radial-gradient(circle, var(--color-firework1) 0.5vh, #0000 0) 13% 24%;
+        /* radial-gradient(vorm, kleur, grootte van de circkle vanuit middelpunt, transparante kleur aan rand circkle) positie horizontaal verticaal */
     background-size: 0.5rem 0.5rem;
     background-repeat: no-repeat;
-    animation: firework 3s infinite;
 }
 
 @keyframes firework {
     0% {
-        transform: translate(-50%, 60vh);
+        bottom: 10%;
         width: 0.5rem;
         opacity: 1;
     }
 
     40% {
+        bottom: 60%;
         width: 0.5rem;
         opacity: 1;
     }
 
     100% {
+        bottom: 60%;
         width: 10rem;
         opacity: 0;
     }
 }
 
 /* Followed tutoral: https://alvaromontoro.com/blog/68002/creating-a-firework-effect-with-css */
-
-
-section:nth-of-type(2) {
-    background-color: #b9de75;
-    height: 20%;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-
-div:not(:first-of-type) {
-    position: fixed;
-    bottom: 20%;
-    border-left: 9rem solid transparent;
-    border-right: 9rem solid transparent;
-    border-bottom: 13rem solid #7ac1e4;
-    z-index: 1;
-}
-
-div:nth-of-type(2) {
-    left: -10rem;
-    bottom: 20%;
-    opacity: .3;
-    z-index: -1;
-}
-
-div:nth-of-type(3) {
-    left: 13rem;
-    bottom: 20%;
-    opacity: .3;
-    z-index: -1;
-}
