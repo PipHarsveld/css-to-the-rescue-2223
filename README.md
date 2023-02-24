@@ -70,9 +70,9 @@ Cubic bezier (?) = vloeiende lijn in bijv illustrator, in svg is dit een letter 
 Je kan het pad ook tijdens de animatie veranderen
 
 Hoe animeert het over het path:
-* ```auto```: volgt precies het path
-* ```45deg```: object draait 45 graden en blijft op zelfde positie
-* ```auto 45deg```: o
+* `auto`: volgt precies het path
+* `45deg`: object draait 45 graden en blijft op zelfde positie
+* `auto 45deg`: object volgt het pad en eindigd 45 graden gedraaid
 
 Anker waardes van de animatie veranderen
 offset-anchor: anchorX anchorY;
