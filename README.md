@@ -15,8 +15,17 @@ Ik wil zelf altijd een heel goed beeld heben van wat ik ga maken en precies wete
 
 ### Schetsen
 
-### Breakdownschets
 
+### Experimenten
+[Codepen - proces na de eerste week](https://codepen.io/pipharsveld/pen/rNZLWzx)
+#### Basis animatie met emoji
+Ik ben begonnen met het opfrissen van mijn kennis van animations, en om hier weer even in te komen heb ik een hele simpele animatie gemaakt van een emoji die de lucht in schiet en vervolgens vervaagd. Dit is de basis van elke vuurpijl, dus vond ik het handig om daar te beginnen. Toen dit eenmaal gelukt was heb ik een begin gemaakt aan het landschap waar de vuurwerkshow zich afspeeld. Later ga ik dit nog verder uitbereiden.
+
+#### Eerste vuurpijl
+Ik vond het lastig om te bedenken hoe je ervoor kon zorgen dat de vuurpijl in het begin een stipje is, en pas op een bepaald punt in de lucht uit elkaar zou spatten tot vuurwerk. Om een idee op te doen over hoe ik dit zou kunnen aanpakken ben ik gaan zoeken naar voorbeelden en technieken, en daar heb ik een interessante tutorial gevolgd. Hierbij maak je een section met daarin een stipje door het gebruiken van een radial-gradient. In de section plaats je dan meerdere stipjes op verschillende plekken in de vorm van het uiteengespatte vuurwerk. Vervolgens maak je deze section heel klein (waardoor alle stipjes zo dicht bij elkaar komen dat het één stip lijkt) en ga je deze animeren. Tijdens de animatie geef je een bepaald punt mee waarop je wil dat de vuurpijl overgaat in het vuurwerk en vergroot je dan de width en height van de section.
+
+#### Vuurwerkshow starten bij donker thema
+Het leek mij leuk dat de vuurwerkshow alleen zou starten in het donker, en dat de gebruiker dit kan beïnvloeden door de thema instellingen van zijn browser aan te passen. Ik heb dit gedaan door `@media (prefers-color-scheme: dark)` te gebruiken en daarin de animatie aan te roepen. Voor de gebruiksvriendelijkheid is het natuurlijk wel belangrijk dat de gebruiker weet dat de show alleen begint in een donker thema, dus heb ik een paragraaf element toegevoegd met de tekst "Zet je browserinstellingen naar darkmode om van de vuurwerkshow te genieten", die d.m.v. `display: none` onzichtbaar wordt in de darkmode.
 
 <!-- ## Week 2
 ### Voortgang
@@ -42,3 +51,54 @@ Ik wil zelf altijd een heel goed beeld heben van wat ik ga maken en precies wete
 Ik was aan de late kant met inschrijven voor de themasessies van vandaag, en dus waren de opties die nog beschikbaar waren niet meteen heel relevant voor mijn idee met de vuurwerkshow. Ik heb mij toen ingeschreven voor de themasessie typografie, omdat ik ook een idee had om vuurwerk in de vorm van een letter of tekst te maken. Ik ben toen met Vasillis over dit idee gaan sparren en kwamen toen tot de conclusie dat dit niet mogelijk is met typografie properties, maar dat ik dit zou kunnen aanpakken door een letter te scalen, meerdere emoji's uit elkaar te laten spatten (emoji's zijn ook typografie!), een letter een gradient te geven die een andere richting op schuift dan de letter of iets te animeren over een path (in de vorm van een letter). Kortom, genoeg opties om dit aan te pakken. Vooral iets animeren over een path sprak mij erg aan, dus daar ga ik tijdens de themasessie van morgen meer over leren.
 
 ### Paden animeren | 23-02-2023
+Lijn tekenen in illustrator, daarna naar svgomg
+
+svgomg --> markup --> path --> code gebruiken bij offset-path
+
+M is het beginpunt
+
+Cubic bezier (?) = vloeiende lijn in bijv illustrator, in svg is dit een letter C
+
+```
+@keyframe{
+    100%{
+        offset-distance: 100% <!--In hoeverre de animatie het pad volgt--> 
+    }
+}
+```
+
+Je kan het pad ook tijdens de animatie veranderen
+
+Hoe animeert het over het path:
+* ```auto```: volgt precies het path
+* ```45deg```: object draait 45 graden en blijft op zelfde positie
+* ```auto 45deg```: o
+
+Anker waardes van de animatie veranderen
+offset-anchor: anchorX anchorY;
+
+Get moving (or not) with css motion path van daniel wilson
+
+Teken je path niet te groot, de paths zijn niet schaalbaar
+
+Clipping en masking van css tricks om de achtergrond achter het object te laten animeren
+
+On hover kan je het path veranderen 
+
+### Container Queries | 23-02-2023
+Bij media queries wordt er gekeken naar de breedte van het scherm, bij container querties wordt gekeken naar de breedte van een bepaald element.
+
+cqw is een unit die je kan gebruiken voor schaalbaarheid.
+
+```
+section{
+    container-type: inline-size;
+    container-name: testje;
+    <!-- Shortcut: -->
+    container: testje / inline-size;
+}
+
+@container testje (min-width: 500px){
+    color: hotpink;
+}
+```
