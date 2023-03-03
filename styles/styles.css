@@ -47,14 +47,20 @@ li {
     --color-mountain: #839FC6;
     --color-mountain-shadow: #6E839E;
     --color-mountain-snow: #ffffff;
+    --color-detonator: #ff0000;
     
+    /* Green: #1D7B31 */
+    /* Darkgreem: #155C24 */
+    /* Lighter green: #80B11A */
+    /* Darker blue: #7BC8F6 */
+    /* Also blue: #92D4F7 */
 
     --height-ground: 17%;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --color-sky: #041A40;
+        --color-sky: #0c3545;
         --color-ground: #4c5e2b;
         --color-mountain: #6E839E;
         --color-mountain-shadow: #536276;
@@ -103,17 +109,39 @@ section:nth-of-type(2) {
     right: 0;
 }
 
-section:nth-of-type(2)>div {
-    background-color: red;
+section:nth-of-type(2)>button {
+    background-color: var(--color-detonator);
     position: fixed;
-    bottom: 5%;
+    bottom: 3%;
+    left: 7%;
     height: 4rem;
     width: 5rem;
+}
+
+section:nth-of-type(2)>button::after {
+    content: "";
+    background-color: grey;
+    width: 4rem;
+    height: .75rem;
+    position: absolute;
+    left: calc(50% - 2rem);
+    bottom: 6rem;
+}
+
+section:nth-of-type(2)>button::before {
+    content: "";
+    background-color: grey;
+    width: .5rem;
+    height: 2.5rem;
+    position: absolute;
+    left: calc(50% - .25rem);
+    bottom: 4rem;
 }
 
 /**********/
 /* Bergen */
 /**********/
+/* :nth-last-child(-n+3) selecteerd laatste 3 divs */
 section:first-of-type>div:nth-last-child(-n+3){
     border-left: 5rem rgba(0, 0, 0, 0) solid;
     border-right: 5rem rgba(0, 0, 0, 0) solid;
