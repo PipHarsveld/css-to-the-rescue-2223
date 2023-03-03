@@ -14,6 +14,7 @@
 html,
 body {
     height: 100%;
+    overflow: hidden;
 }
 
 body {
@@ -40,30 +41,35 @@ li {
 /*********************/
 /* Custom properties */
 /*********************/
-:root{
-    --color-sky: #b4ddf0;
-    --color-ground: #b9de75;
-    --color-mountain: #7ac1e4;
+:root {
+    --color-sky: #BAE4FA;
+    --color-ground: #9DC250;
+    --color-mountain: #839FC6;
+    --color-mountain-shadow: #6E839E;
+    --color-mountain-snow: #ffffff;
+    
+
+    --height-ground: 17%;
 }
 
 @media (prefers-color-scheme: dark) {
-    :root{
+    :root {
         --color-sky: #041A40;
         --color-ground: #4c5e2b;
-        --color-mountain: #285165;
+        --color-mountain: #6E839E;
+        --color-mountain-shadow: #536276;
+        --color-mountain-snow: #C9C9C9;
         --color-firework1: hotpink;
     }
-
-
 
     section:first-of-type>div:first-of-type {
         animation: firework 3s infinite;
     }
 
-    body>p:first-of-type{
+    body>p:first-of-type {
         display: none;
     }
-  }
+}
 
 
 /********************/
@@ -74,12 +80,13 @@ body {
     color-scheme: dark light;
 }
 
-p{
+p {
     font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
 }
 
 
-body>p:first-of-type{
+body>p:first-of-type {
     margin: 3rem;
 }
 
@@ -89,47 +96,74 @@ body>p:first-of-type{
 /************************/
 section:nth-of-type(2) {
     background-color: var(--color-ground);
-    height: 20%;
+    height: var(--height-ground);
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
 }
 
+section:nth-of-type(2)>div {
+    background-color: red;
+    position: fixed;
+    bottom: 5%;
+    height: 4rem;
+    width: 5rem;
+}
+
 /**********/
 /* Bergen */
 /**********/
-div:not(:first-of-type) {
+section:first-of-type>div:nth-last-child(-n+3){
+    border-left: 5rem rgba(0, 0, 0, 0) solid;
+    border-right: 5rem rgba(0, 0, 0, 0) solid;
+    border-bottom: 8rem var(--color-mountain) solid;
     position: fixed;
-    bottom: 20%;
-    border-left: 9rem solid transparent;
-    border-right: 9rem solid transparent;
-    border-bottom: 13rem solid var(--color-mountain);
-    z-index: 1;
+    bottom: var(--height-ground);
 }
 
-div:nth-of-type(2) {
-    left: -10rem;
-    bottom: 20%;
-    opacity: .3;
-    z-index: -1;
+/* Schaduw */
+section:first-of-type>:nth-last-child(-n+3)::before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    border-right: 110px rgba(0, 0, 0, 0) solid;
+    border-bottom: 170px var(--color-mountain-shadow) solid;
 }
 
-div:nth-of-type(3) {
-    left: 13rem;
-    bottom: 20%;
-    opacity: .3;
-    z-index: -1;
+/* Sneeuw */
+section:first-of-type>div:nth-last-child(-n+3)::after {
+    content: '';
+    position: absolute;
+    left: -39px;
+    border-left: 39px rgba(0, 0, 0, 0) solid;
+    border-right: 39px rgba(0, 0, 0, 0) solid;
+    border-bottom: 60px var(--color-mountain-snow) solid;
 }
 
-/******************************/
-/* Shooting firework emoji up */
-/******************************/
+/* Positie bergen */
+section:first-of-type>div:nth-last-child(1){
+    left: -10%;
+}
+
+section:first-of-type>div:nth-last-child(2){
+    left: 40%;
+}
+
+section:first-of-type>div:nth-last-child(3){
+    left: 70%;
+}
+
+
+
+/*********************/
+/* Vuurwerk met emoji*/
+/*********************/
 section:first-of-type>p {
     font-size: 3rem;
     z-index: 0;
     position: absolute;
-    bottom: 20%;
+    bottom: var(--height-ground);
     left: 3rem;
     animation: shootFirework 7s linear 1s infinite normal;
     transition: 5s;
@@ -138,7 +172,7 @@ section:first-of-type>p {
 @keyframes shootFirework {
     0% {
         left: 3rem;
-        bottom: 20%;
+        bottom: var(--height-ground);
         opacity: 1;
     }
 
@@ -161,9 +195,9 @@ section:first-of-type>p {
     }
 }
 
-/**********************/
-/* Exploding firework */
-/**********************/
+/************************/
+/* Exploderend vuurwerk */
+/************************/
 section:first-of-type>div:first-of-type {
     position: absolute;
     bottom: 10%;
@@ -183,14 +217,14 @@ section:first-of-type>div:first-of-type {
         radial-gradient(circle, var(--color-firework1) 0.2vh, #0000 0) 90% 23%,
         radial-gradient(circle, var(--color-firework1) 0.3vh, #0000 0) 45% 20%,
         radial-gradient(circle, var(--color-firework1) 0.5vh, #0000 0) 13% 24%;
-        /* radial-gradient(vorm, kleur, grootte van de circkle vanuit middelpunt, transparante kleur aan rand circkle) positie horizontaal verticaal */
+    /* radial-gradient(vorm, kleur, grootte van de circkle vanuit middelpunt, transparante kleur aan rand circkle) positie horizontaal verticaal */
     background-size: 0.5rem 0.5rem;
     background-repeat: no-repeat;
 }
 
 @keyframes firework {
     0% {
-        bottom: 10%;
+        bottom: var(--height-ground);
         width: 0.5rem;
         opacity: 1;
     }
