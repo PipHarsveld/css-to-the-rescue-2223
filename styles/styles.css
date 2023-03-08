@@ -48,7 +48,8 @@ li {
     --color-mountain-shadow: #6E839E;
     --color-mountain-snow: #ffffff;
     --color-detonator: #ff0000;
-    
+    --color-handle: #808080;
+
     /* Green: #1D7B31 */
     /* Darkgreem: #155C24 */
     /* Lighter green: #80B11A */
@@ -62,14 +63,16 @@ li {
     :root {
         --color-sky: #0c3545;
         --color-ground: #4c5e2b;
-        --color-mountain: #6E839E;
-        --color-mountain-shadow: #536276;
-        --color-mountain-snow: #C9C9C9;
+        --color-mountain: #5b6b81;
+        --color-mountain-shadow: #465364;
+        --color-mountain-snow: #a6a6a6;
+        --color-detonator: #9d0000;
+        --color-handle: #6f6f6f;
         --color-firework1: hotpink;
     }
 
-    section:first-of-type>div:first-of-type {
-        animation: firework 3s infinite;
+    body:has(label > input:checked) section:first-of-type>div:first-of-type {
+        animation: firework 3s 3;
     }
 
     body>p:first-of-type {
@@ -109,18 +112,43 @@ section:nth-of-type(2) {
     right: 0;
 }
 
-section:nth-of-type(2)>button {
-    background-color: var(--color-detonator);
+/* section:nth-of-type(2)>button {
     position: fixed;
     bottom: 3%;
     left: 7%;
-    height: 4rem;
-    width: 5rem;
+    height: 7.5rem;
+    width: 6rem;
+    background-color: transparent;
+    border: none;
 }
 
-section:nth-of-type(2)>button::after {
+section:nth-of-type(2)>button:hover>div::after{
+    bottom: 5.8rem;
+}
+
+section:nth-of-type(2)>button:hover>div::before{
+    height: 2rem;
+}
+
+section:nth-of-type(2)>button:active>div::after{
+    bottom: 4.5rem;
+}
+
+section:nth-of-type(2)>button:active>div::before{
+    height: 1rem;
+}
+
+section:nth-of-type(2)>button>div {
+    background-color: var(--color-detonator);
+    height: 4rem;
+    width: 5rem;
+    bottom: 0;
+    position: absolute;
+}
+
+section:nth-of-type(2)>button>div::after {
     content: "";
-    background-color: grey;
+    background-color: var(--color-handle);
     width: 4rem;
     height: .75rem;
     position: absolute;
@@ -128,9 +156,28 @@ section:nth-of-type(2)>button::after {
     bottom: 6rem;
 }
 
-section:nth-of-type(2)>button::before {
+section:nth-of-type(2)>button>div::before {
     content: "";
-    background-color: grey;
+    background-color: var(--color-handle);
+    width: .5rem;
+    height: 2.5rem;
+    position: absolute;
+    left: calc(50% - .25rem);
+    bottom: 4rem;
+} */
+
+label {
+    background-color: var(--color-detonator);
+    height: 4rem;
+    width: 5rem;
+    position: fixed;
+    bottom: 3%;
+    left: 7%;
+}
+
+label::before {
+    content: "";
+    background-color: var(--color-handle);
     width: .5rem;
     height: 2.5rem;
     position: absolute;
@@ -138,11 +185,45 @@ section:nth-of-type(2)>button::before {
     bottom: 4rem;
 }
 
+label::after {
+    content: "";
+    background-color: var(--color-handle);
+    width: 4rem;
+    height: .75rem;
+    position: absolute;
+    left: calc(50% - 2rem);
+    bottom: 6rem;
+}
+
+label:hover::after{
+    bottom: 5.8rem;
+}
+
+label:hover::before{
+    height: 2rem;
+}
+
+label>input {
+    appearance: none;
+}
+
+body:has(label > input:checked) label::before{
+    height: 1rem;
+}
+
+body:has(label > input:checked) label::after{
+    bottom: 4.5rem;
+}
+
+body:has(label > input:checked) section:first-of-type>div:first-of-type {
+    animation: firework 3s 3;
+}
+
 /**********/
 /* Bergen */
 /**********/
-/* :nth-last-child(-n+3) selecteerd laatste 3 divs */
-section:first-of-type>div:nth-last-child(-n+3){
+/* :nth-last-child(-n+3) selecteerd laatste 3 divs --> bergen */
+section:first-of-type>div:nth-last-child(-n+3) {
     border-left: 5rem rgba(0, 0, 0, 0) solid;
     border-right: 5rem rgba(0, 0, 0, 0) solid;
     border-bottom: 8rem var(--color-mountain) solid;
@@ -170,15 +251,15 @@ section:first-of-type>div:nth-last-child(-n+3)::after {
 }
 
 /* Positie bergen */
-section:first-of-type>div:nth-last-child(1){
+section:first-of-type>div:nth-last-child(1) {
     left: -10%;
 }
 
-section:first-of-type>div:nth-last-child(2){
+section:first-of-type>div:nth-last-child(2) {
     left: 40%;
 }
 
-section:first-of-type>div:nth-last-child(3){
+section:first-of-type>div:nth-last-child(3) {
     left: 70%;
 }
 
