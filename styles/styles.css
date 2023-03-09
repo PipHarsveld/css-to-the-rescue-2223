@@ -96,9 +96,9 @@ body>p:first-of-type {
 }
 
 
-/************************/
-/* Grond met detonators */
-/************************/
+/**********/
+/* Grond */
+/*********/
 section:nth-of-type(2) {
     background-color: var(--color-ground);
     height: var(--height-ground);
@@ -108,21 +108,15 @@ section:nth-of-type(2) {
     right: 0;
 }
 
+/*******************************/
+/* Algemene styling detonators */
+/*******************************/
 label {
     background-color: var(--color-detonator);
     height: 3rem;
     width: 4rem;
     position: fixed;
-    bottom: 3%;
-}
-
-
-label:first-of-type {
-    left: 7%;
-}
-
-label:nth-of-type(2) {
-    left: 40%;
+    bottom: 3vh;
 }
 
 label::before {
@@ -145,52 +139,66 @@ label::after {
     bottom: 5rem;
 }
 
-label:first-of-type:hover::after {
-    bottom: 5.8rem;
-}
-
-label:first-of-type:hover::before {
-    height: 2rem;
-}
-
 label>input {
     appearance: none;
 }
 
-body:has(label:first-of-type > input:checked) label:first-of-type::before {
+/* label:first-of-type:hover::after,
+label:nth-of-type(2):hover::after {
+    bottom: 5.8rem;
+} */
+
+/* label:first-of-type:hover::before,
+label:nth-of-type(2):hover::before {
+    height: 2rem;
+} */
+
+body:has(label:first-of-type > input:checked) label:first-of-type::before,
+body:has(label:nth-of-type(2) > input:checked) label:nth-of-type(2)::before,
+body:has(label:nth-of-type(3) > input:checked) label:nth-of-type(3)::before {
     height: 1rem;
 }
 
-body:has(label:first-of-type > input:checked) label:first-of-type::after {
-    bottom: 4.5rem;
+body:has(label:first-of-type > input:checked) label:first-of-type::after,
+body:has(label:nth-of-type(2) > input:checked) label:nth-of-type(2)::after,
+body:has(label:nth-of-type(3) > input:checked) label:nth-of-type(3)::after {
+    bottom: 4rem;
+}
+
+
+/********************/
+/* Eerste detonator */
+/********************/
+label:first-of-type {
+    left: 7%;
 }
 
 body:has(label:first-of-type > input:checked) section:first-of-type>p {
-    animation: shootFirework 7s linear 1s infinite normal;;
+    animation: shootFirework 7s linear 1s infinite normal;
 }
 
 
-
-label:nth-of-type(2):hover::after {
-    bottom: 5.8rem;
-}
-
-label:nth-of-type(2):hover::before {
-    height: 2rem;
-}
-
-body:has(label:nth-of-type(2) > input:checked) label:nth-of-type(2)::before {
-    height: 1rem;
-}
-
-body:has(label:nth-of-type(2) > input:checked) label:nth-of-type(2)::after {
-    bottom: 4.5rem;
+/********************/
+/* Tweede detonator */
+/********************/
+label:nth-of-type(2) {
+    left: 40%;
 }
 
 body:has(label:nth-of-type(2) > input:checked) section:first-of-type>div:first-of-type {
     animation: firework 3s 3;
 }
 
+/*******************/
+/* Derde detonator */
+/*******************/
+label:nth-of-type(3) {
+    left: 70%;
+}
+
+body:has(label:nth-of-type(3) > input:checked) section:first-of-type>div:nth-of-type(2) {
+    animation: motionPathFirework 3s infinite;
+}
 
 /**********/
 /* Bergen */
@@ -264,12 +272,6 @@ section:first-of-type>p {
         opacity: 1;
     }
 
-    55% {
-        left: 3rem;
-        bottom: 80%;
-        opacity: 0;
-    }
-
     100% {
         left: 3rem;
         bottom: 80%;
@@ -331,9 +333,8 @@ section:first-of-type>div:first-of-type {
 /************************/
 /* Motion Path vuurwerk */
 /************************/
-section:first-of-type>div>div{
+section:first-of-type>div:nth-of-type(2) {
     offset-path: path("m48.35,649.82c.44-35.34.52-90.39-2-158.21-3.91-105.15-10.48-143.6,17-170.49,23.3-22.81,66.15-32.47,95.5-14,35.39,22.27,43.31,80.52,17,116.24-28.6,38.84-86.21,35.49-119.99,17C4.19,412.09-8.59,340.71,8.85,295.37c16.64-43.25,53.35-43.59,78-80.75C109.89,179.89,118.84,118.31,63.35.64");
-    animation: move 3s infinite;
     position: absolute;
     bottom: 90vh;
     left: 50%;
@@ -344,12 +345,11 @@ section:first-of-type>div>div{
     border-radius: 50%;
 }
 
-
-
-@keyframes move {
-    80%{
+@keyframes motionPathFirework {
+    80% {
         opacity: 1;
     }
+
     100% {
         offset-distance: 100%;
         height: 3rem;
