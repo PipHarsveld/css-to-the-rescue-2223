@@ -71,10 +71,6 @@ li {
         --color-firework1: hotpink;
     }
 
-    body:has(label > input:checked) section:first-of-type>div:first-of-type {
-        animation: firework 3s 3;
-    }
-
     body>p:first-of-type {
         display: none;
     }
@@ -101,7 +97,7 @@ body>p:first-of-type {
 
 
 /************************/
-/* Grond met ontstekers */
+/* Grond met detonators */
 /************************/
 section:nth-of-type(2) {
     background-color: var(--color-ground);
@@ -112,94 +108,48 @@ section:nth-of-type(2) {
     right: 0;
 }
 
-/* section:nth-of-type(2)>button {
-    position: fixed;
-    bottom: 3%;
-    left: 7%;
-    height: 7.5rem;
-    width: 6rem;
-    background-color: transparent;
-    border: none;
-}
-
-section:nth-of-type(2)>button:hover>div::after{
-    bottom: 5.8rem;
-}
-
-section:nth-of-type(2)>button:hover>div::before{
-    height: 2rem;
-}
-
-section:nth-of-type(2)>button:active>div::after{
-    bottom: 4.5rem;
-}
-
-section:nth-of-type(2)>button:active>div::before{
-    height: 1rem;
-}
-
-section:nth-of-type(2)>button>div {
-    background-color: var(--color-detonator);
-    height: 4rem;
-    width: 5rem;
-    bottom: 0;
-    position: absolute;
-}
-
-section:nth-of-type(2)>button>div::after {
-    content: "";
-    background-color: var(--color-handle);
-    width: 4rem;
-    height: .75rem;
-    position: absolute;
-    left: calc(50% - 2rem);
-    bottom: 6rem;
-}
-
-section:nth-of-type(2)>button>div::before {
-    content: "";
-    background-color: var(--color-handle);
-    width: .5rem;
-    height: 2.5rem;
-    position: absolute;
-    left: calc(50% - .25rem);
-    bottom: 4rem;
-} */
-
 label {
     background-color: var(--color-detonator);
-    height: 4rem;
-    width: 5rem;
+    height: 3rem;
+    width: 4rem;
     position: fixed;
     bottom: 3%;
+}
+
+
+label:first-of-type {
     left: 7%;
+}
+
+label:nth-of-type(2) {
+    left: 40%;
 }
 
 label::before {
     content: "";
     background-color: var(--color-handle);
-    width: .5rem;
-    height: 2.5rem;
+    width: .4rem;
+    height: 2rem;
     position: absolute;
     left: calc(50% - .25rem);
-    bottom: 4rem;
+    bottom: 3rem;
 }
 
 label::after {
     content: "";
     background-color: var(--color-handle);
     width: 4rem;
-    height: .75rem;
+    height: .6rem;
     position: absolute;
     left: calc(50% - 2rem);
-    bottom: 6rem;
+    bottom: 5rem;
 }
 
-label:hover::after{
+label:first-of-type:hover::after {
     bottom: 5.8rem;
 }
 
-label:hover::before{
+label:first-of-type:hover::before {
     height: 2rem;
 }
 
@@ -207,23 +157,46 @@ label>input {
     appearance: none;
 }
 
-body:has(label > input:checked) label::before{
+body:has(label:first-of-type > input:checked) label:first-of-type::before {
     height: 1rem;
 }
 
-body:has(label > input:checked) label::after{
+body:has(label:first-of-type > input:checked) label:first-of-type::after {
     bottom: 4.5rem;
 }
 
-body:has(label > input:checked) section:first-of-type>div:first-of-type {
+body:has(label:first-of-type > input:checked) section:first-of-type>p {
+    animation: shootFirework 7s linear 1s infinite normal;;
+}
+
+
+
+label:nth-of-type(2):hover::after {
+    bottom: 5.8rem;
+}
+
+label:nth-of-type(2):hover::before {
+    height: 2rem;
+}
+
+body:has(label:nth-of-type(2) > input:checked) label:nth-of-type(2)::before {
+    height: 1rem;
+}
+
+body:has(label:nth-of-type(2) > input:checked) label:nth-of-type(2)::after {
+    bottom: 4.5rem;
+}
+
+body:has(label:nth-of-type(2) > input:checked) section:first-of-type>div:first-of-type {
     animation: firework 3s 3;
 }
+
 
 /**********/
 /* Bergen */
 /**********/
 /* :nth-last-child(-n+3) selecteerd laatste 3 divs --> bergen */
-section:first-of-type>div:nth-last-child(-n+3) {
+section:nth-of-type(2)>div:nth-last-child(-n+3) {
     border-left: 5rem rgba(0, 0, 0, 0) solid;
     border-right: 5rem rgba(0, 0, 0, 0) solid;
     border-bottom: 8rem var(--color-mountain) solid;
@@ -232,34 +205,34 @@ section:first-of-type>div:nth-last-child(-n+3) {
 }
 
 /* Schaduw */
-section:first-of-type>:nth-last-child(-n+3)::before {
+section:nth-of-type(2)>:nth-last-child(-n+3)::before {
     content: '';
     position: absolute;
     left: 0px;
-    border-right: 110px rgba(0, 0, 0, 0) solid;
-    border-bottom: 170px var(--color-mountain-shadow) solid;
+    border-right: 5rem rgba(0, 0, 0, 0) solid;
+    border-bottom: 8rem var(--color-mountain-shadow) solid;
 }
 
 /* Sneeuw */
-section:first-of-type>div:nth-last-child(-n+3)::after {
+section:nth-of-type(2)>div:nth-last-child(-n+3)::after {
     content: '';
     position: absolute;
-    left: -39px;
-    border-left: 39px rgba(0, 0, 0, 0) solid;
-    border-right: 39px rgba(0, 0, 0, 0) solid;
-    border-bottom: 60px var(--color-mountain-snow) solid;
+    left: -2rem;
+    border-left: 2rem rgba(0, 0, 0, 0) solid;
+    border-right: 2rem rgba(0, 0, 0, 0) solid;
+    border-bottom: 3.2rem var(--color-mountain-snow) solid;
 }
 
 /* Positie bergen */
-section:first-of-type>div:nth-last-child(1) {
+section:nth-of-type(2)>div:nth-last-child(1) {
     left: -10%;
 }
 
-section:first-of-type>div:nth-last-child(2) {
+section:nth-of-type(2)>div:nth-last-child(2) {
     left: 40%;
 }
 
-section:first-of-type>div:nth-last-child(3) {
+section:nth-of-type(2)>div:nth-last-child(3) {
     left: 70%;
 }
 
@@ -274,7 +247,7 @@ section:first-of-type>p {
     position: absolute;
     bottom: var(--height-ground);
     left: 3rem;
-    animation: shootFirework 7s linear 1s infinite normal;
+    /* animation: shootFirework 7s linear 1s infinite normal; */
     transition: 5s;
 }
 
@@ -352,3 +325,35 @@ section:first-of-type>div:first-of-type {
 }
 
 /* Followed tutoral: https://alvaromontoro.com/blog/68002/creating-a-firework-effect-with-css */
+
+
+
+/************************/
+/* Motion Path vuurwerk */
+/************************/
+section:first-of-type>div>div{
+    offset-path: path("m48.35,649.82c.44-35.34.52-90.39-2-158.21-3.91-105.15-10.48-143.6,17-170.49,23.3-22.81,66.15-32.47,95.5-14,35.39,22.27,43.31,80.52,17,116.24-28.6,38.84-86.21,35.49-119.99,17C4.19,412.09-8.59,340.71,8.85,295.37c16.64-43.25,53.35-43.59,78-80.75C109.89,179.89,118.84,118.31,63.35.64");
+    animation: move 3s infinite;
+    position: absolute;
+    bottom: 90vh;
+    left: 50%;
+
+    background-color: salmon;
+    height: .5rem;
+    width: .5rem;
+    border-radius: 50%;
+}
+
+
+
+@keyframes move {
+    80%{
+        opacity: 1;
+    }
+    100% {
+        offset-distance: 100%;
+        height: 3rem;
+        width: 3rem;
+        opacity: 0;
+    }
+}
