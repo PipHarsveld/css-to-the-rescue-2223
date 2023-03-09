@@ -174,7 +174,7 @@ label:first-of-type {
 }
 
 body:has(label:first-of-type > input:checked) section:first-of-type>p {
-    animation: shootFirework 7s linear 1s infinite normal;
+    animation: shootFirework 3s linear infinite;
 }
 
 
@@ -254,8 +254,7 @@ section:first-of-type>p {
     z-index: 0;
     position: absolute;
     bottom: var(--height-ground);
-    left: 3rem;
-    /* animation: shootFirework 7s linear 1s infinite normal; */
+    left: 1rem;
     transition: 5s;
 }
 
@@ -276,6 +275,7 @@ section:first-of-type>p {
         left: 3rem;
         bottom: 80%;
         opacity: 0;
+        scale: 2;
     }
 }
 
