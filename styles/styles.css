@@ -38,6 +38,8 @@ li {
     list-style-type: none;
 }
 
+
+
 /*********************/
 /* Custom properties */
 /*********************/
@@ -60,6 +62,11 @@ li {
     --height-ground: 17%;
 }
 
+
+
+/************/
+/* Darkmode */
+/************/
 @media (prefers-color-scheme: dark) {
     :root {
         --color-sky: #0c3545;
@@ -90,6 +97,7 @@ li {
 }
 
 
+
 /********************/
 /* Algemene styling */
 /********************/
@@ -109,6 +117,7 @@ body>p:first-of-type {
 }
 
 
+
 /**********/
 /* Grond */
 /*********/
@@ -120,6 +129,8 @@ section:nth-of-type(2) {
     left: 0;
     right: 0;
 }
+
+
 
 /*******************************/
 /* Algemene styling detonators */
@@ -169,12 +180,14 @@ body:has(label:nth-of-type(3) > input:checked) label:nth-of-type(3)::after {
 }
 
 
+
 /********************/
 /* Eerste detonator */
 /********************/
 label:first-of-type {
     left: 7%;
 }
+
 
 
 /********************/
@@ -192,6 +205,8 @@ label:nth-of-type(2) {
 label:nth-of-type(3) {
     left: 70%;
 }
+
+
 
 /**********/
 /* Bergen */
@@ -271,6 +286,8 @@ section:first-of-type>p {
         scale: 2;
     }
 }
+
+
 
 /************************/
 /* Exploderend vuurwerk */
@@ -352,6 +369,10 @@ section:first-of-type>div:nth-of-type(2) {
 }
 
 
+
+/***********************/
+/* transition vuurwerk */
+/***********************/
 section:first-of-type>div:nth-of-type(3)>div {
     border-radius: 50%;
     height: 30px;
