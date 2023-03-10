@@ -49,6 +49,7 @@ li {
     --color-mountain-snow: #ffffff;
     --color-detonator: #ff0000;
     --color-handle: #808080;
+    --color-transparent: rgba(0, 0, 0, 0);
 
     /* Green: #1D7B31 */
     /* Darkgreem: #155C24 */
@@ -68,11 +69,23 @@ li {
         --color-mountain-snow: #a6a6a6;
         --color-detonator: #9d0000;
         --color-handle: #6f6f6f;
-        --color-firework1: hotpink;
+        --color-firework1: #ff69b4;
     }
 
     body>p:first-of-type {
         display: none;
+    }
+
+    body:has(label:first-of-type > input:checked) section:first-of-type>p {
+        animation: shootFirework 3s linear infinite;
+    }
+
+    body:has(label:nth-of-type(2) > input:checked) section:first-of-type>div:first-of-type {
+        animation: firework 3s 3;
+    }
+
+    body:has(label:nth-of-type(3) > input:checked) section:first-of-type>div:nth-of-type(2) {
+        animation: motionPathFirework 3s infinite;
     }
 }
 
@@ -143,16 +156,6 @@ label>input {
     appearance: none;
 }
 
-/* label:first-of-type:hover::after,
-label:nth-of-type(2):hover::after {
-    bottom: 5.8rem;
-} */
-
-/* label:first-of-type:hover::before,
-label:nth-of-type(2):hover::before {
-    height: 2rem;
-} */
-
 body:has(label:first-of-type > input:checked) label:first-of-type::before,
 body:has(label:nth-of-type(2) > input:checked) label:nth-of-type(2)::before,
 body:has(label:nth-of-type(3) > input:checked) label:nth-of-type(3)::before {
@@ -173,10 +176,6 @@ label:first-of-type {
     left: 7%;
 }
 
-body:has(label:first-of-type > input:checked) section:first-of-type>p {
-    animation: shootFirework 3s linear infinite;
-}
-
 
 /********************/
 /* Tweede detonator */
@@ -185,9 +184,7 @@ label:nth-of-type(2) {
     left: 40%;
 }
 
-body:has(label:nth-of-type(2) > input:checked) section:first-of-type>div:first-of-type {
-    animation: firework 3s 3;
-}
+
 
 /*******************/
 /* Derde detonator */
@@ -196,17 +193,13 @@ label:nth-of-type(3) {
     left: 70%;
 }
 
-body:has(label:nth-of-type(3) > input:checked) section:first-of-type>div:nth-of-type(2) {
-    animation: motionPathFirework 3s infinite;
-}
-
 /**********/
 /* Bergen */
 /**********/
 /* :nth-last-child(-n+3) selecteerd laatste 3 divs --> bergen */
 section:nth-of-type(2)>div:nth-last-child(-n+3) {
-    border-left: 5rem rgba(0, 0, 0, 0) solid;
-    border-right: 5rem rgba(0, 0, 0, 0) solid;
+    border-left: 5rem var(--color-transparent) solid;
+    border-right: 5rem var(--color-transparent) solid;
     border-bottom: 8rem var(--color-mountain) solid;
     position: fixed;
     bottom: var(--height-ground);
@@ -217,7 +210,7 @@ section:nth-of-type(2)>:nth-last-child(-n+3)::before {
     content: '';
     position: absolute;
     left: 0px;
-    border-right: 5rem rgba(0, 0, 0, 0) solid;
+    border-right: 5rem var(--color-transparent) solid;
     border-bottom: 8rem var(--color-mountain-shadow) solid;
 }
 
@@ -226,8 +219,8 @@ section:nth-of-type(2)>div:nth-last-child(-n+3)::after {
     content: '';
     position: absolute;
     left: -2rem;
-    border-left: 2rem rgba(0, 0, 0, 0) solid;
-    border-right: 2rem rgba(0, 0, 0, 0) solid;
+    border-left: 2rem var(--color-transparent) solid;
+    border-right: 2rem var(--color-transparent) solid;
     border-bottom: 3.2rem var(--color-mountain-snow) solid;
 }
 
@@ -289,18 +282,18 @@ section:first-of-type>div:first-of-type {
     transform: translate(-50%, -50%);
     width: 0.5rem;
     aspect-ratio: 1;
-    background: radial-gradient(circle, var(--color-firework1) 0.2vh, #0000 0) 50% 00%,
-        radial-gradient(circle, var(--color-firework1) 0.3vh, #0000 0) 00% 50%,
-        radial-gradient(circle, var(--color-firework1) 0.5vh, #0000 0) 50% 99%,
-        radial-gradient(circle, var(--color-firework1) 0.2vh, #0000 0) 99% 50%,
-        radial-gradient(circle, var(--color-firework1) 0.3vh, #0000 0) 80% 90%,
-        radial-gradient(circle, var(--color-firework1) 0.5vh, #0000 0) 95% 90%,
-        radial-gradient(circle, var(--color-firework1) 0.5vh, #0000 0) 10% 60%,
-        radial-gradient(circle, var(--color-firework1) 0.2vh, #0000 0) 31% 80%,
-        radial-gradient(circle, var(--color-firework1) 0.3vh, #0000 0) 80% 10%,
-        radial-gradient(circle, var(--color-firework1) 0.2vh, #0000 0) 90% 23%,
-        radial-gradient(circle, var(--color-firework1) 0.3vh, #0000 0) 45% 20%,
-        radial-gradient(circle, var(--color-firework1) 0.5vh, #0000 0) 13% 24%;
+    background: radial-gradient(circle, var(--color-firework1) 0.2vh, var(--color-transparent) 0) 50% 00%,
+        radial-gradient(circle, var(--color-firework1) 0.3vh, var(--color-transparent) 0) 00% 50%,
+        radial-gradient(circle, var(--color-firework1) 0.5vh, var(--color-transparent) 0) 50% 99%,
+        radial-gradient(circle, var(--color-firework1) 0.2vh, var(--color-transparent) 0) 99% 50%,
+        radial-gradient(circle, var(--color-firework1) 0.3vh, var(--color-transparent) 0) 80% 90%,
+        radial-gradient(circle, var(--color-firework1) 0.5vh, var(--color-transparent) 0) 95% 90%,
+        radial-gradient(circle, var(--color-firework1) 0.5vh, var(--color-transparent) 0) 10% 60%,
+        radial-gradient(circle, var(--color-firework1) 0.2vh, var(--color-transparent) 0) 31% 80%,
+        radial-gradient(circle, var(--color-firework1) 0.3vh, var(--color-transparent) 0) 80% 10%,
+        radial-gradient(circle, var(--color-firework1) 0.2vh, var(--color-transparent) 0) 90% 23%,
+        radial-gradient(circle, var(--color-firework1) 0.3vh, var(--color-transparent) 0) 45% 20%,
+        radial-gradient(circle, var(--color-firework1) 0.5vh, var(--color-transparent) 0) 13% 24%;
     /* radial-gradient(vorm, kleur, grootte van de circkle vanuit middelpunt, transparante kleur aan rand circkle) positie horizontaal verticaal */
     background-size: 0.5rem 0.5rem;
     background-repeat: no-repeat;
@@ -356,4 +349,46 @@ section:first-of-type>div:nth-of-type(2) {
         width: 3rem;
         opacity: 0;
     }
+}
+
+
+section:first-of-type>div:nth-of-type(3)>div {
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    margin: 10px;
+}
+
+section:first-of-type>div:nth-of-type(3):hover {
+    transform: translateY(-200px);
+}
+
+section:first-of-type>div:nth-of-type(3)>div:first-of-type {
+    background: PaleTurquoise;
+    transition: all 1.5s linear;
+}
+
+section:first-of-type>div:nth-of-type(3)>div:nth-of-type(2) {
+    background: salmon;
+    transition: all 1.5s ease;
+}
+
+section:first-of-type>div:nth-of-type(3)>div:nth-of-type(3) {
+    background: lightskyblue;
+    transition: all 1.5s ease-in;
+}
+
+section:first-of-type>div:nth-of-type(3)>div:nth-of-type(4) {
+    background: khaki;
+    transition: all 1.5s ease-out;
+}
+
+section:first-of-type>div:nth-of-type(3)>div:nth-of-type(5) {
+    background: mediumturquoise;
+    transition: all 1.5s ease-in-out;
+}
+
+section:first-of-type>div:nth-of-type(3)>div:nth-of-type(6) {
+    background: thistle;
+    transition: all 1.5s cubic-bezier(0, 1, .98, 0);
 }
