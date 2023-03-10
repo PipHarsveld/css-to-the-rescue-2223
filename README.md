@@ -13,9 +13,6 @@ Voor mijn vuurwerkshow wil ik meerdere CSS technieken uitproberen. Ik heb er al 
 ### Grootste uitdagingen
 Ik wil zelf altijd een heel goed beeld heben van wat ik ga maken en precies weten hoe het eruit moet komen te zien, voor ik ergens aan begin. Juist bij deze opdracht vormt het eindresultaat door het proberen, experimenteren en fouten maken waardoor ik niet kan beginnen met een compleet vooruitgedacht plan. Dat is voor mij wel een uitdaging, maar dat is dan ook de reden dat ik voor deze opdracht heb gekozen.
 
-### Schetsen
-
-
 ### Experimenten
 [Codepen - proces na de eerste week](https://codepen.io/pipharsveld/pen/rNZLWzx)
 #### Basis animatie met emoji
@@ -27,23 +24,22 @@ Ik vond het lastig om te bedenken hoe je ervoor kon zorgen dat de vuurpijl in he
 #### Vuurwerkshow starten bij donker thema
 Het leek mij leuk dat de vuurwerkshow alleen zou starten in het donker, en dat de gebruiker dit kan beïnvloeden door de thema instellingen van zijn browser aan te passen. Ik heb dit gedaan door `@media (prefers-color-scheme: dark)` te gebruiken en daarin de animatie aan te roepen. Voor de gebruiksvriendelijkheid is het natuurlijk wel belangrijk dat de gebruiker weet dat de show alleen begint in een donker thema, dus heb ik een paragraaf element toegevoegd met de tekst "Zet je browserinstellingen naar darkmode om van de vuurwerkshow te genieten", die d.m.v. `display: none` onzichtbaar wordt in de darkmode.
 
-<!-- ## Week 2
-### Voortgang
-
-### Soepel en lastig
-
+## Week 2
 ### 'Mislukte' experimenten
+Toen ik begon met het maken van de ontstekers, heb ik dit gedaan met het `<button>` element. Later, toen ik ervoor wilde zorgen dat het indrukken van de button een vuurpijl zou activeren, kwam ik erachter dat dit met het button element niet ging zonder javascript. Ik heb toen de button omgezet in een `<input type="checkbox"`, waarmee ik de vuurpijl wel af kon laten gaan door de animatie te zetten op `body:has(label:first-of-type > input:checked)`.
 
 ### Nieuwe inzichten
+- Ik heb eigenlijk heel weinig gewerkt met animaties, dus daar wilde ik tijdens dit vak handiger in worden. Ik heb hier dan ook mee gespeeld en elke vuurpijl bevat een animatie.
+- Het leek mij leuk om de animatie alleen te starten als de gebruiker zijn browser in een donker thema heeft staan. Ik ben gaan onderzoeken hoe ik dit het beste kon aanpakken en heb dat gedaan met `prefers-color-scheme: dark`, en daarin heb ik de animatie geplaatst. De animaties gaan dus alleen starten als het browserthema donker is, dan veranderen de kleuren van het landschap ook.
+- Voor het maken van de vuurwerkshow heb ik ook `calc()` gebruikt, wat ik eerder eigenlijk nog nooit gedaan had. Na een uitleg van Sanne over de mogelijkheden van calc wilde ik hier ook iets mee doen en dat heb ik dan ook gebruikt voor het positioneren van de hendels van de ontsteker.
+- Met `:before` en `:after` werken was ook niet iets wat ik eerder had gedaan, normaalgesproken maakte ik dan een container met daarin meerdere children die ik een andere styling gaf, maar ik heb nu geleerd dat het beter is om een item wat bij elkaar hoort te stylen met behulp van :before en :after. Voor het maken van de ontstekers heb ik het hendel gemaakt met :before en :after en zo is de ontsteker gemaakt met één html tag i.p.v. een container met drie children.
+- Tijdens een gastcollege in de les heb ik gehoord over de `:has` selector en de mogelijkheden daarvan. Ik vond het nog wel lastig om te bedenken waar ik dit allemaal zou kunnen toepassen, maar voor het activeren van de ontstekers heb ik dit wel kunnen gebruiken. De ontstekers zijn radiobuttons die ik de animatie laat uitvoeren als de checkbox gecheckt, oftewel ingedrukt, is. Ik doe dit met `body:has(label:first-of-type > input:checked)`.
+- Tot slot heb ik nog met veel selectoren gewerkt. Ik gebruikte voor dit vak al redelijk wat selectoren, maar wel de basis als `:first-of-type` en `:nth-of-type()`. Voor het maken van de vuurwerkshow wilde ik hier wat meer mee experimenteren, waar dat nuttig was uiteraard. Voor het maken van de bergen wilde ik de laatste 3 `<div>` selecteren, maar ik wist nog niet hoe veel divs daarvoor zouden komen en dus moest het dynamisch zijn. Ik heb dit toen gedaan door de selector `section:nth-of-type(2)>div:nth-last-child(-n+3)`. Deze selctor gaat in de tweede section opzoek naar de laatste drie divs. Door `(-n+3)` wordt voor n elke keer een hoger getal ingevuld en worden dus de eerste drie divjes geselcteerd. Door daar weer `div:nth-last-child` voor te zetten worden niet de eerste drie maar de laatste drie geselecteerd.
+- Voor het maken van de bergen wilde ik driehoeken maken, maar ik wist niet hoe ik dit het beste kon aanpakken. Na wat zoeken ben ik erachter gekomen dat je dit kan doen door een div een hight en width van 0 te geven, en die vervolgens drie borders te geven. Door de hight en width van 0 komen de borders tegen elkaar en door 3 borders te gebruiken wordt het een driehoek.
 
-### Wijzigingen aan het 1e plan
+### Wat ga ik vaker gebruiken
+Ik heb tijdens deze twee weken veel nieuwe mogelijkheden en snufjes van CSS geleerd, alleen had ik ze nog meer willen toepassen. Tijdens dit vak heb ik geleerd wat je allemaal kan doen met dingen als `calc()`, `:before` en `:after`, animaties, `:has` en de wat specialere selectoren, en hier wil ik dan ook in nog volgende projecten meer gebruik van gaan maken. 
 
-### Uitdagingen voor komende week
-
-## Week 3
-
-
-## Week 4 -->
 
 
 ## Themasessies
